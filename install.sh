@@ -24,7 +24,7 @@ fi
 # ==================== 模块加载 ====================
 # 模块目录固定使用 /etc/sing-box/modules，确保 sb 快捷命令和首次安装路径一致
 MODULES_DIR="/etc/sing-box/modules"
-REPO="Kiss8202/Trae"
+REPO="JasonV001/Trae"
 
 # ==================== GitHub 镜像支持 ====================
 # 环境变量 GH_MIRROR 可手动指定镜像前缀，例如：
