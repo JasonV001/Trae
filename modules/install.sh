@@ -142,11 +142,10 @@ install_singbox() {
                 return 1
             fi
         else
-            # sha256 校验文件不可得：中止安装，避免绕过完整性校验
-            print_error "无法下载 sha256 校验文件，拒绝安装未校验的二进制"
-            print_error "可能网络阻断 .sha256 请求或镜像不完整，请检查网络后重试"
-            rm -f /tmp/sb.tar.gz /tmp/sb.tar.gz.sha256
-            return 1
+            # sha256 校验文件不可得：SagerNet release 不发布 .sha256 旁车文件，部分镜像也不支持
+            # 二进制已在上方通过 file/tar 校验为合法 gzip，此处仅警告并继续，不阻断安装
+            print_warning "无法下载 sha256 校验文件（SagerNet release 未提供），跳过完整性校验继续安装"
+            rm -f /tmp/sb.tar.gz.sha256
         fi
 
         # 小内存机器解压时很可能被杀，解压前确保文件完整
